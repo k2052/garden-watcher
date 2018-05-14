@@ -21,7 +21,7 @@
   "Given a relative path to a source file, find it on the classpath, returning a
 fully qualified java.io.File "
   [path]
-  (->> (cp/classpath)
+  (->> (cp/system-classpath)
        (map #(io/file % path))
        (filter #(.exists %))
        first))
